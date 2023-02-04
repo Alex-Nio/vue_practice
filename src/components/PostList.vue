@@ -1,18 +1,17 @@
 <template>
-  <div class="posts" v-for="post in posts">
-    <div class="post">
-      <div>
-        <strong>Название:</strong>
-        {{ post.title }}
-      </div>
-      <div>
-        {{ post.body }}
-      </div>
-    </div>
+  <div>
+    <h3>Список постов</h3>
+    <post-item
+      v-for="post in posts"
+      :key="post.id"
+      @remove="$emit('remove', post)"
+      :post="post"
+    ></post-item>
   </div>
 </template>
 
 <script>
+import PostItem from "@/components/PostItem";
 export default {
   props: {
     posts: {
@@ -20,16 +19,10 @@ export default {
       required: true,
     },
   },
+  components: {
+    PostItem,
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-@import "../assets/scss/imports.scss";
-.post {
-  @include fdcjc_ais;
-  font-size: 1.4rem;
-  padding: 20px;
-  margin: 10px 0;
-  border: 2px solid teal;
-}
-</style>
+

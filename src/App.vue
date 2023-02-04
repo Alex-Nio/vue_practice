@@ -5,10 +5,13 @@
       <router-view />
     </header>
     <div class="container">
-      <div class="content">
+      <div v-if="posts.length > 0" class="content">
         <h1 class="title">{{ Title }}</h1>
         <post-form @create="createPost"></post-form>
-        <post-list :posts="posts"></post-list>
+        <post-list :posts="posts" @remove="removePost"></post-list>
+      </div>
+      <div v-else>
+        <h3>Список постов пуст</h3>
       </div>
     </div>
   </div>
@@ -38,6 +41,9 @@ export default {
   methods: {
     createPost(post) {
       this.posts.push(post);
+    },
+    removePost(post) {
+      this.posts = this.posts.filter((p) => p.id !== post.id);
     },
   },
 };
