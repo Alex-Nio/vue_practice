@@ -3,9 +3,7 @@
     <h1 class="form-title">Создание поста</h1>
     <my-input v-model="post.title" type="text" placeholder="Описание" />
     <my-input v-model="post.body" type="text" placeholder="Название" />
-    <my-button style="align-self: flex-end" @click="createPost"
-      >Создать</my-button
-    >
+    <my-button style="align-self: flex-end" @click="createPost">Создать</my-button>
   </form>
 </template>
 
@@ -34,6 +32,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/scss/imports.scss";
+
 .posts-form {
   @include fdc;
 

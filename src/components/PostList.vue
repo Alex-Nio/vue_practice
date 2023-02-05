@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="posts">
     <h3>Список постов</h3>
     <post-item
       v-for="post in posts"
@@ -25,4 +25,9 @@ export default {
 };
 </script>
 
+<style lang="scss">
+.posts {
+  padding: 20px 0;
+}
+</style>
 
